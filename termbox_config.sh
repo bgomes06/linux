@@ -2,11 +2,15 @@
 
 # Add missing components
 
-yum -y install vim net-tools traceroute;
+uname -a | grep 'ubuntu'
+if [ $? == 0 ]; then
+        apt-get -y install vim net-tools traceroute;
+else
+        yum -y install vim net-tools traceroute;
+fi
 
 
 # Add myip variable (shows public IP)
 
-echo "alias myip=`curl ipinfo.io/ip`" >> /root/.bashrc
-
-
+echo "export myip=`curl ipinfo.io/ip`" >> /root/.bashrc
+source /root/.bashrc
