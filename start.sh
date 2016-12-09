@@ -42,7 +42,28 @@ function network_tools(){
 	fi
 }
 
+	
+function lamp(){
+	tools=(httpd mysql-server php php-mysql)
 
+	if [ $OS_DT == '1' ]; then
+        	call_debian "${tools[@]}";
+	else
+        	call_fedora "${tools[@]}" ;
+	fi
+
+	service httpd start
+	service mysqld start
+
+	chkconfig httpd on
+	chkconfig mysqld on
+
+	read -p "Press y to configure MySQL now, or ENTER to skip: " mysql_inst
+
+	if [ $mysql_inst=='y']; then
+		/usr/bin/mysql_secure_installation
+	fi
+}
 
 echo 'Escolha o que deseja fazer: '
 echo '1) Ferramentas de rede'
