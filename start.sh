@@ -45,7 +45,8 @@ function network_tools(){
 	
 function lamp(){
 	tools=(httpd mysql-server php php-mysql)
-
+	mysql_inst='n'
+	
 	if [ $OS_DT == '1' ]; then
         	call_debian "${tools[@]}";
 	else
@@ -78,7 +79,7 @@ case $option in
 	network_tools
 	;;
 	2)
-	echo '2'
+	lamp	
 	;;
 	3)
 	echo '3'
