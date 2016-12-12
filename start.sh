@@ -69,26 +69,29 @@ function lamp(){
 echo 'Escolha o que deseja fazer: '
 echo '1) Ferramentas de rede'
 echo '2) Instalação LAMP'
-echo '3) '
 echo '99) Sair'
 
 read -p 'Digite a opção desejada: ' option
 
-case $option in
-	1)
-	network_tools
-	;;
-	2)
-	lamp	
-	;;
-	3)
-	echo '3'
-	;;
-	99)
-	echo '99'
-	;;
-esac
-
+while True:
+do
+	case $option in
+		1)
+		network_tools
+		break
+		;;
+		2)
+		lamp	
+		break
+		;;
+		3)
+		;;
+		99)
+		exit	
+		*)
+		echo "Opcao invalida! Escolha uma nova opcao ou 99 para sair.
+	esac
+done
 
 #echo "export myip=`curl ipinfo.io/ip`" >> /root/.bashrc
 #source /root/.bashrc
