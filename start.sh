@@ -85,10 +85,9 @@ function config_files(){
 	echo "colo desert" >> /root/.vimrc
 	source /root/.vimrc
 
+	# Add myip variable (shows public IP)
 	echo "export myip=`curl ipinfo.io/ip`" >> /root/.bashrc
 	source /root/.bashrc
-	
-
 }
 
 
